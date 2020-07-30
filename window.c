@@ -1,7 +1,7 @@
 #include "window.h"
 
-int const WINDOW_WIDTH = 720;
-int const WINDOW_HEIGHT = 720;
+unsigned short const WINDOW_WIDTH = 720;
+unsigned short const WINDOW_HEIGHT = 720;
 
 bool init(SDL_Window **g_window, SDL_Renderer **g_renderer) {
     bool success = true;
@@ -21,7 +21,7 @@ bool init(SDL_Window **g_window, SDL_Renderer **g_renderer) {
                 printf("Couldn't initialize renderer. SDL Error: %s\n", SDL_GetError());
                 success = false;
             } else {
-                SDL_SetRenderDrawColor(*g_renderer, 0xFF, 0xFF, 0xFF, SDL_ALPHA_OPAQUE);
+                SDL_SetRenderDrawColor(*g_renderer, 0x00, 0x00, 0x00, SDL_ALPHA_OPAQUE);
                 SDL_RenderClear(*g_renderer);
                 SDL_RenderPresent(*g_renderer);
 
