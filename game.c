@@ -1,6 +1,7 @@
 #include "game.h"
 #include "snake.h"
 
+// should divide width and height
 unsigned short const TILE_SIZE = 20;
 
 // in ms
