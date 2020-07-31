@@ -22,15 +22,6 @@ struct snake_body {
     unsigned short snake_grow : 1;
 };
 
-struct snake_textures {
-    SDL_Texture *background;
-    SDL_Texture *head[4];
-    SDL_Texture *body[4];
-    SDL_Texture *tail[4];
-};
-
-typedef struct snake_textures snake_textures;
-
 /*
 // Apple structure
 */
@@ -59,7 +50,7 @@ void snake_move(snake_head *s_head, snake_body **s_body, snake_apple *s_apple);
 /*
 // Render snake
 */
-void render_snake(SDL_Renderer *g_renderer, snake_head *s_head, snake_body *s_body, snake_apple *s_apple, snake_textures *s_textures);
+void render_snake(SDL_Renderer *g_renderer, snake_head *s_head, snake_body *s_body, snake_apple *s_apple);
 
 /*
 // Apple spawner

@@ -10,7 +10,7 @@ bool init(SDL_Window **g_window, SDL_Renderer **g_renderer) {
         printf("Couldn't initialize video. SDL Error: %s\n", SDL_GetError());
         success = false;
     } else {
-        *g_window = SDL_CreateWindow("Snake Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+        *g_window = SDL_CreateWindow("Minimalistic Snake Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
                                    WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
         if (*g_window == NULL) {
             printf("Couldn't create window. SDL Error: %s\n", SDL_GetError());

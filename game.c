@@ -1,11 +1,10 @@
 #include "game.h"
-#include "snake.h"
 
 // should divide width and height
-unsigned short const TILE_SIZE = 20;
+unsigned short const TILE_SIZE = 10;
 
 // in ms
-static unsigned short const DELTA_TIME = 100;
+static unsigned short const DELTA_TIME = 66;
 
 void run(SDL_Window *g_window, SDL_Renderer *g_renderer) {
     bool quit = false;
@@ -21,7 +20,7 @@ void run(SDL_Window *g_window, SDL_Renderer *g_renderer) {
     snake_apple s_apple = {-1, -1, true};
 
     SDL_RenderClear(g_renderer);
-    render_snake(g_renderer, s_head, s_body, &s_apple, NULL);
+    render_snake(g_renderer, s_head, s_body, &s_apple);
     SDL_RenderPresent(g_renderer);
 
     while (!quit) {
@@ -70,10 +69,27 @@ void run(SDL_Window *g_window, SDL_Renderer *g_renderer) {
             }
 
             SDL_RenderClear(g_renderer);
-            render_snake(g_renderer, s_head, s_body, &s_apple, NULL);
+            render_snake(g_renderer, s_head, s_body, &s_apple);
             SDL_RenderPresent(g_renderer);
 
             last_time = SDL_GetTicks();
         }
     }
+
+    close_game(g_window, g_renderer, s_head, s_body);
+}
+
+void close_game(SDL_Window *g_window, SDL_Renderer *g_renderer, snake_head *s_head, snake_body *s_body) {
+    free(s_head);
+    while (s_body != NULL) {
+        snake_body *ptr_to_free = s_body;
+        s_body = s_body->next;
+        free(ptr_to_free);
+    }
+
+    SDL_DestroyWindow(g_window);
+    SDL_DestroyRenderer(g_renderer);
+
+    SDL_Quit();
+    IMG_Quit();
 }

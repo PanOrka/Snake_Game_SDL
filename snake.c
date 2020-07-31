@@ -4,7 +4,7 @@
 #include "time.h"
 
 #ifndef SNAKE_FRAME
-#define SNAKE_FRAME 2
+#define SNAKE_FRAME 0
 #endif
 
 #ifndef SET_COLOR_WHITE
@@ -102,7 +102,7 @@ void snake_move(snake_head *s_head, snake_body **s_body, snake_apple *s_apple) {
     }
 }
 
-void render_snake(SDL_Renderer *g_renderer, snake_head *s_head, snake_body *s_body, snake_apple *s_apple, snake_textures *s_textures) {
+void render_snake(SDL_Renderer *g_renderer, snake_head *s_head, snake_body *s_body, snake_apple *s_apple) {
     SDL_Rect clip = {0, 0, TILE_SIZE - 2*SNAKE_FRAME, TILE_SIZE - 2*SNAKE_FRAME};
 
     SET_COLOR_WHITE;
