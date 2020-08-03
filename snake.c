@@ -71,11 +71,13 @@ void snake_move(snake_head *s_head, snake_body **s_body, snake_apple *s_apple) {
         new_node->snake_grow = 0;
 
         *s_body = new_node;
+
+        if (new_head_pos_x == temp->x && new_head_pos_y == temp->y) {
+            s_apple->was_eaten = true;
+            return snake_reset(s_head, s_body);
+        }
     }
-    if (new_head_pos_x == temp->x && new_head_pos_y == temp->y) {
-        s_apple->was_eaten = true;
-        return snake_reset(s_head, s_body);
-    }
+    
 
     while (temp->next != NULL) {
         temp->x = temp->next->x;

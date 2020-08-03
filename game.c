@@ -33,29 +33,31 @@ void run(SDL_Window *g_window, SDL_Renderer *g_renderer) {
                         if (s_head->vel_y != 1) {
                             s_head->vel_x = 0;
                             s_head->vel_y = -1;
+                            move_done = false;
                         }
                         break;
                     case SDLK_DOWN:
                         if (s_head->vel_y != -1) {
                             s_head->vel_x = 0;
                             s_head->vel_y = 1;
+                            move_done = false;
                         }
                         break;
                     case SDLK_LEFT:
                         if (s_head->vel_x != 1) {
                             s_head->vel_x = -1;
                             s_head->vel_y = 0;
+                            move_done = false;
                         }
                         break;
                     case SDLK_RIGHT:
                         if (s_head->vel_x != -1) {
                             s_head->vel_x = 1;
                             s_head->vel_y = 0;
+                            move_done = false;
                         }
                         break;
                 }
-
-                move_done = false;
             }
         }
 
